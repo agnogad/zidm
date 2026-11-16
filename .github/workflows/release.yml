@@ -70,7 +70,7 @@ jobs:
 
       - name: Build release binary
         shell: bash
-        run: zig build install -Doptimize=ReleaseSafe --prefix zig-out/release --summary all
+        run: zig build install -Dcpu=baseline -Doptimize=ReleaseSafe --prefix zig-out/release --summary all
 
       # Linux and macOS both produce a file called "zidm". Rename before
       # upload so merging the artifacts cannot overwrite one of them.
