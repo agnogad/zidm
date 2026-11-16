@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZIDM — Download Manager</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v12m-5-5 5 5 5-5M4 20h16"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></symbol>
+  <symbol id="i-magnet" viewBox="0 0 24 24"><path d="M6 4v8a6 6 0 0 0 12 0V4h-4v8a2 2 0 0 1-4 0V4z"/><path d="M6 8h4m4 0h4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 12 8-12 8z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m-9 0 1 14h10l1-14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 10 4-3v10l-4-3z"/></symbol>
+  <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></symbol>
+  <symbol id="i-archive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2 20h20z"/><path d="M12 10v5m0 3h.01"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 20 4-1 11-11-3-3L5 16zM14 6l3 3"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 6M20 4v7h-7"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
+  <symbol id="i-queue" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
+  <symbol id="i-signal" viewBox="0 0 24 24"><path d="M4 18h3v-4H4zm6 0h3V9h-3zm6 0h3V4h-3z"/></symbol>
+</svg>
+
+<div id="app" class="app">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"><svg class="ico"><use href="#i-download"/></svg></span>
+      <span class="brand-name">ZIDM</span>
+    </div>
+    <span id="engineStatus" class="status mono">engine starting</span>
+    <span class="grow"></span>
+    <label class="search-wrap"><svg class="ico"><use href="#i-search"/></svg>
+      <input id="findInput" type="search" placeholder="Find" aria-label="Find"></label>
+    <button id="langBtn" class="icon-btn" title="Language" aria-label="Language">TR</button>
+    <button id="themeBtn" class="icon-btn" title="Theme" aria-label="Theme"><svg class="ico"><use href="#i-sun"/></svg></button>
+    <button id="settingsBtn" class="icon-btn" title="Options" aria-label="Options"><svg class="ico"><use href="#i-gear"/></svg></button>
+  </header>
+
+  <div class="menubar">
+    <button data-menu="tasks">Tasks</button>
+    <button data-menu="file">File</button>
+    <button data-menu="downloads">Downloads</button>
+    <button data-menu="view">View</button>
+    <button data-menu="help">Help</button>
+  </div>
+
+  <div class="toolbar">
+    <button id="addUrlBtn" class="btn primary"><svg class="ico"><use href="#i-plus"/></svg> Add URL</button>
+    <button id="addTorrentBtn" class="btn"><svg class="ico"><use href="#i-magnet"/></svg> Add Torrent</button>
+    <span class="sep"></span>
+    <button id="resumeBtn" class="btn icon" title="Resume"><svg class="ico"><use href="#i-play"/></svg></button>
+    <button id="pauseBtn" class="btn icon" title="Pause"><svg class="ico"><use href="#i-pause"/></svg></button>
+    <button id="stopBtn" class="btn icon" title="Stop"><svg class="ico"><use href="#i-stop"/></svg></button>
+    <button id="removeBtn" class="btn icon" title="Remove"><svg class="ico"><use href="#i-trash"/></svg></button>
+    <button id="deleteCompletedBtn" class="btn">Delete Completed</button>
+    <span class="sep"></span>
+    <button id="schedulerBtn" class="btn"><svg class="ico"><use href="#i-clock"/></svg> Scheduler</button>
+    <button id="speedBtn" class="btn"><svg class="ico"><use href="#i-signal"/></svg> Speed Limiter</button>
+    <button id="startQueueBtn" class="btn"><svg class="ico"><use href="#i-queue"/></svg> Start Queue</button>
+    <button id="stopQueueBtn" class="btn">Stop Queue</button>
+  </div>
+
+  <div class="workspace">
+    <aside id="sidebar" class="sidebar">
+      <nav id="categories" class="side-nav"></nav>
+      <div class="side-foot mono" id="sideFoot">—</div>
+    </aside>
+
+    <main class="content">
+      <div class="list-head" id="listHead"></div>
+      <div id="list" class="list" role="listbox" aria-multiselectable="true"></div>
+      <div id="empty" class="empty" hidden><h2>Nothing here</h2><p id="emptyReason">Add a link to start downloading.</p></div>
+    </main>
+  </div>
+
+  <footer class="statusbar">
+    <span id="statusCount">0 downloads</span>
+    <span id="statusSelected"></span>
+    <span class="grow"></span>
+    <span id="statusSpeed" class="mono">0 B/s</span>
+    <span id="statusDir" class="mono"></span>
+  </footer>
+</div>
+
+<div id="menu" class="popup-menu" hidden></div>
+<div id="context" class="popup-menu" hidden></div>
+<div id="modal" class="modal-root" hidden></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
