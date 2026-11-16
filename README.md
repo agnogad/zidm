@@ -67,7 +67,7 @@ builds each target on its own runner:
 | Asset | Runner |
 | --- | --- |
 | `zidm-linux-x86_64` | Ubuntu 24.04 |
-| `zidm-macos-aarch64` | macOS (Apple Silicon) |
+| `zidm-macos-x86_64` | macOS (Apple Silicon) |
 | `zidm-windows-x86_64.exe` | Windows |
 
 ## Prerequisites
